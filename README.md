@@ -16,6 +16,7 @@
 ## usersテーブル
 
 ### Association
+- has_many :members
 - has_many :messages
 - has_many :group through:members
 
@@ -26,6 +27,7 @@
 |name|string|null:false,unique: true|
 
 ### Association
+- has_many: members
 - has_many :users through: members
 - has_many :messages
 
