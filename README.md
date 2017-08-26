@@ -39,8 +39,8 @@
 
 
 
-### index
--add_index :messages [:body,:image]
--add_index :users [:name,:mail,:password]
--add_index :groups [:name]
+## index
+- add_index :messages [:body,:image]
+- add_index :users [:name,:mail,:password]
+- add_index :groups [:name]
 
