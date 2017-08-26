@@ -12,14 +12,8 @@
 - belongs_to :group
 - belongs_to :user
 
-## usersテーブル
 
-|Column|Type|Option|
-|------|----|------|
-|name|string|null:false|
-|mail|string|null:false|
-|password|string|null:false|
-||timestamps|null:fasle|
+## usersテーブル
 
 ### Association
 - has_many :messages
@@ -29,15 +23,22 @@
 
 |Column|Type|Option|
 |------|----|------|
-|name|string|null:false|
-|user_id|integer|null:false, foreign_key: true|
+|name|string|null:false,unique: true|
 
-###Association
+### Association
 - has_many :users through: members
 - has_many :messages
 
+## membersテーブル
 
+|Column|Type|Option|
+|------|----|------|
+|group_id|integer|foreign_key: true|
+|user_id|integer|foreign_key: true|
 
+### Association
+- belongs_to :group
+- belongs_to :message
 
 ## index
 - add_index :messages [:body,:image]
