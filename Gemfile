@@ -1,47 +1,62 @@
 source 'https://rubygems.org'
 
+#デフォルトgem-----------------------------------------------
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0','>=5.0.0.1'
-# Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.3.13', '< 0.5'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+    # rails導入 バージョンは5.0~5.0.0.1の範囲
+    gem 'rails', '~> 5.0.0','>=5.0.0.1'
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+    # Active Recordで使うデータベースの種類
+    gem 'mysql2', '>= 0.3.13', '< 0.5'
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+    # スタイルシートで使うSCSSの導入
+    gem 'sass-rails', '~> 5.0'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
+    # Uglifierの導入。UglifyJS2より JavaScript のコード軽量化ライブラリを、Ruby で簡単に使えるようできる。要はJavaScriptを圧縮してくれる。
+    gem 'uglifier', '>= 1.3.0'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+    # coffee-scriptを使えるようにする。coffee-scriptはjavascriptをruby向けに簡単にしたもの。
+    gem 'coffee-rails', '~> 4.1.0'
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-end
+    # JavaScriptのライブラリ「jquery」の導入
+    gem 'jquery-rails'
 
-group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-end
+    # Turbolinksを導入する。Turbolinksは画面遷移を高速化させる。主にcssとjavascriptで役に立つ。
+    gem 'turbolinks'
+
+    # jubilderの導入。Jsonのテンプレートエンジン
+    gem 'jbuilder', '~> 2.0'
+
+    # Rubyのソースコードからコメント等を読み取りHTML+CSS+JavaScriptを吐き出して、ブラウザで閲覧しやすいドキュメントを作ってくれる。
+    gem 'sdoc', '~> 0.4.0', group: :doc
+
+
+
+#追加したgem--------------------------------------------------------
+
+  #view用
+    #railsにてhamlを使えるようにするためのgem
+    gem 'haml-rails'
+
+
+
+# 開発&テスト用-----------------------------------------------------
+  group :development, :test do
+    #デバッグ用のgem
+    gem 'byebug'
+  end
+
+
+
+# 開発用-----------------------------------------------------------
+  group :development do
+    #ビュー内でコンソールを立ててデバッグできるgem
+    gem 'web-console', '~> 2.0'
+
+    #hamlに変換できるgem
+    gem 'erb2haml'
+
+    #Springと呼ばれるアプリケーションプリローダーを導入する。アプリケーションプリローダーとは事前にバックグラウンドでライブラリをロードしておくことで、その待ち時間を短くするもの。
+    gem 'spring'
+  end
 
